@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <title>Output</title>
+</head>
+<body class="m-3">
+    <p>Problem type = {{minOrMax}}</p>
+    <p>Total number of constraints recieved = {{ numOfConstraints }}</p>
+    <p>Number of Inequality Constraints recieved = {{ inequalityConstraints }}</p>
+    <p>Method recieved = {{ method }}</p>
+    <p>Objective matrix recieved = {{ functionCoeffecientMatrix }}</p>
+    <p>inequality matrix recieved = {{ inequalityMatrix }}</p>
+    <p>Constant matric recieved = {{ constantMatrix }}</p>
+
+    <!-- <p>Initial tableau with slack variables = {{ finalResult[0] }}</p> -->
+    <!-- inital tableau -->
+    <p class="fw-bold">Initial tableau with slack variables: </p>
+    {% for i in range(finalResult[0].shape[0]) %}
+    {% for j in range(finalResult[0].shape[1]) %}
+    <!-- {{ "{:.2f}".format(finalResult[0][i, j]) }} -->
+    <span class="px-2">
+    {{ "%0.2f"|format(finalResult[0][i, j]) }}
+    </span>
+    {% endfor %}
+    <br>
+    {% endfor %}
+    <br>
+
+    <!-- Bfs -->
+    {% for k in range(finalResult[1]|length) %}
+    <p class="fw-bold">BFS {{ k+1 }}:</p>
+    {% for i in range(finalResult[1][k].shape[0]) %}
+    {% for j in range(finalResult[1][k].shape[1]) %}
+    <span class="px-2">
+    {{ "%0.2f"|format(finalResult[1][k][i, j]) }}
+    </span>
+    {% endfor %}
+    <br>
+    {% endfor %}
+    <br>
+    <p><span class="fw-bold">pivot element: </span>{{ finalResult[-2][k][0] }} (index: [{{ finalResult[-2][k][1] }}, {{ finalResult[-2][k][2] }}])</p>
+    <br>
+    {% endfor %}
+
+    <!-- <p>Final Optimal BFS = {sa{ finalResult[-1] }}</p> -->
+    <p class="fw-bold">Final Optimal BFS:</p>
+    {% for i in range(finalResult[-1].shape[0]) %}
+    {% for j in range(finalResult[-1].shape[1]) %}
+    <span class="px-2">
+    {{ "%0.2f"|format(finalResult[-1][i, j]) }}
+    </span>
+    {% endfor %}
+    <br>
+    {% endfor %}
+    <br>
+
+    
+    <p class="fw-bold">Optimal values:</p>
+    {% for i in range(optimalValues_list|length) %}
+    <p>X{{ optimalValues_list[i][0] }} = {{ finalResult[-1][optimalValues_list[i][1]][-1] }}</p>
+    {% endfor %}
+    <br>
+
+    <p>Optimal value list: {{ optimalValues_list }}</p>
+    
+    <p class="fw-bold">Final answer:</p>
+    {{ finalResult[-1][-1, -1] }}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+</body>
+</html>
