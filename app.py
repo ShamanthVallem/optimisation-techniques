@@ -19,6 +19,9 @@ def calculate():
     numOfConstraints = int(request.form['numOfConstraints'])
     global inequalityConstraints
     inequalityConstraints = int(request.form['numOfInequalityConstraints'])
+
+    if(numOfConstraints < inequalityConstraints):
+        return render_template("data.html")
     coeff_value_list = [6, 4, 7, 5]
     ineq_value_list = [[1, 2, 1, 2, 20], [6, 5, 3, 2, 100], [3, 4, 9, 12, 75]]
     return render_template("calculate.html", minOrMax = minOrMax, numOfConstraints = numOfConstraints, inequalityConstraints = inequalityConstraints, coeff_value_list=coeff_value_list, ineq_value_list=ineq_value_list)

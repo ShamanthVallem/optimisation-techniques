@@ -37,7 +37,7 @@
 
     <!-- <p>Initial tableau with slack variables = {{ finalResult[0] }}</p> -->
     <!-- inital tableau -->
-    <div class="container bg-light border border-secondary rounded my-4 p-3">
+    <div class="container bg-light border border-secondary rounded my-4 p-3 overflow-auto">
     <p class="fw-bold">Initial tableau with slack variables:</p>
     {% for i in range(finalResult[0].shape[0]) %} {% for j in
     range(finalResult[0].shape[1]) %}
@@ -49,7 +49,7 @@
     <br />
     </div>
 
-    <div class="container bg-light border border-secondary rounded my-4 p-3 d-flex justify-content-around">
+    <div class="container bg-light border border-secondary rounded my-4 p-3 d-flex justify-content-around overflow-auto">
     <!-- Bfs -->
     {% for k in range(finalResult[1]|length) %}
     <div>
@@ -68,7 +68,7 @@
     </div>
 
     <!-- <p>Final Optimal BFS = {sa{ finalResult[-1] }}</p> -->
-    <div class="container bg-light border border-secondary rounded my-4 p-3 d-flex justify-content-around">
+    <div class="container bg-light border border-secondary rounded my-4 p-3 d-flex justify-content-around overflow-auto">
         <div>
             <p class="fw-bold">Final Optimal BFS:</p>
             {% for i in range(finalResult[-1].shape[0]) %} 

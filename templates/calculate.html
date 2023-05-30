@@ -30,7 +30,7 @@
         <p><span class="fw-semibold">Number of Inequality Constraints:</span> {{ inequalityConstraints }}</p>
     </div>
 
-    <div class="container bg-light border border-secondary rounded my-4 p-3">
+    <div class="container overflow-auto bg-light border border-secondary rounded my-4 p-3">
         <form action="/output" method="post">
 
             <!-- Coefficients of objective function -->
@@ -38,7 +38,7 @@
             <div class="d-flex my-2">
                 <label for="objcof{{ i }}" class="fw-semibold my-3">Objective function: </label>
                 {% for i in range(numOfConstraints-inequalityConstraints) %}
-                <input type="number" name="objcof{{ i }}" id="objcof{{ i }}" class="mx-2" required /><br><br>
+                <input type="number" name="objcof{{ i }}" id="objcof{{ i }}" class="mx-2" required placeholder="X{{ i+1 }}" /><br><br>
                 {% endfor %}
             </div>
 
@@ -51,7 +51,7 @@
                 {% if(j == numOfConstraints-inequalityConstraints) %}
                 <input type="number" name="iqrsts{{ i }}{{ j }}" id="iqrsts{{ i }}{{ j }}" class="mx-2" required placeholder="constant" /><br><br>
                 {% else %}
-                <input type="number" name="iqrsts{{ i }}{{ j }}" id="iqrsts{{ i }}{{ j }}" class="mx-2" required /><br><br>
+                <input type="number" name="iqrsts{{ i }}{{ j }}" id="iqrsts{{ i }}{{ j }}" class="mx-2" required placeholder="X{{ j+1 }}"/><br><br>
                 {% endif %}
                 {% endfor %}
             </div>
