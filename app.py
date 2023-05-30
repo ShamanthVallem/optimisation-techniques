@@ -65,6 +65,10 @@ def output():
 
     return render_template("output.html", minOrMax = minOrMax, numOfConstraints = numOfConstraints, inequalityConstraints = inequalityConstraints, functionCoeffecientMatrix = functionCoeffecientMatrix, inequalityMatrix = inequalityMatrix, constantMatrix = constantMatrix, method = method, finalResult = finalResult,optimalValues_list = optimalValues_list)
 
+
+@app.route("/docs")
+def docs():
+    return render_template("docs.html")
 # Function to extract coefficients from given equation
 def extractVariables(eq):
     eq = eq.split()
