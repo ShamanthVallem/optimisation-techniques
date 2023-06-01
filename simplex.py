@@ -74,14 +74,6 @@ def simplexMethod(functionCoeffecientMatrix, inequalityMatrix, constantMatrix, m
     # return tableau[-1, -1]
     return tobeReturned
 
-# def print_tableau(tableau):
-#     m, n = tableau.shape
-#     for i in range(m):
-#         for j in range(n):
-#             print("{:.2f}".format(tableau[i, j]), end="\t")
-#         print()
-#     print("---------------------")
-
 def optimalValues(optimizedTableau):
     count = 0
     flag = 0

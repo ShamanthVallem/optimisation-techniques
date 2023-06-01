@@ -9,7 +9,7 @@ def data():
     return render_template("data.html")
 
 
-@app.route("/calculate", methods = ['post'])
+@app.route("/calculate", methods = ['get','post'])
 def calculate():
     global minOrMax
     minOrMax = (request.form["minOrMax"])
@@ -20,13 +20,12 @@ def calculate():
     global inequalityConstraints
     inequalityConstraints = int(request.form['numOfInequalityConstraints'])
 
-    if(numOfConstraints < inequalityConstraints):
+    if(numOfConstraints <= inequalityConstraints):
         return render_template("data.html")
     coeff_value_list = [6, 4, 7, 5]
     ineq_value_list = [[1, 2, 1, 2, 20], [6, 5, 3, 2, 100], [3, 4, 9, 12, 75]]
     return render_template("calculate.html", minOrMax = minOrMax, numOfConstraints = numOfConstraints, inequalityConstraints = inequalityConstraints, coeff_value_list=coeff_value_list, ineq_value_list=ineq_value_list)
     # return render_template("calculate.html", minOrMax = minOrMax, numOfConstraints = numOfConstraints, inequalityConstraints = inequalityConstraints)
-
 
 @app.route("/output", methods = ["post"])
 def output():
@@ -61,6 +60,7 @@ def output():
         optimalValues_list = optimalValues(finalResult[-1])
     elif(method == "revisedSimplex"):
         finalResult = revisedSimplexMethod(functionCoeffecientMatrix, inequalityMatrix, constantMatrix, minOrMax)
+        optimalValues_list = optimalValues(finalResult[-1])
 
 
     return render_template("output.html", minOrMax = minOrMax, numOfConstraints = numOfConstraints, inequalityConstraints = inequalityConstraints, functionCoeffecientMatrix = functionCoeffecientMatrix, inequalityMatrix = inequalityMatrix, constantMatrix = constantMatrix, method = method, finalResult = finalResult,optimalValues_list = optimalValues_list)

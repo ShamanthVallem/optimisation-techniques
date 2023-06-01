@@ -10,7 +10,7 @@
     <title>Input Data</title>
 </head>
 
-<body>
+<body> 
 
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
@@ -24,7 +24,93 @@
         </div>
     </nav>
 
+    <div class="container bg-light border border-secondary rounded my-4 p-3">
+        <h1>Simplex method</h1><br>
+        <p>Linear programming involves maximising or minimising a linear objective function subject to a set of linear
+            constraints. The simplex method starts with an initial feasible solution and iteratively improves it until
+            an optimal solution is found.</p>
+        <p>Here are the basic steps of the simplex method:</p>
 
+        <p>1. Formulate the linear programming problem: Define the objective function to be maximised or minimised,
+            along with the constraints on the decision variables.</p>
+        <p>2. Convert the problem into standard form: Express the problem in the form of equalities by introducing slack
+            or surplus variables as necessary.</p>
+        <p>3. Set up the initial simplex tableau: Create a table with the coefficients of the variables and constraints.
+            This tableau represents the initial feasible solution.</p>
+        <p>4. Identify the pivot column: Select the most negative coefficient in the objective row as the entering
+            variable.</p>
+        <p>5. Identify the pivot row: Determine the pivot row by selecting the smallest nonnegative ratio of the
+            constant term to the corresponding coefficient in the pivot column.</p>
+        <p>6. Perform the pivot operation: Use elementary row operations to make the pivot element 1 and the other
+            elements in the pivot column 0.</p>
+        <p>7. Update the tableau: Recalculate the coefficients in the tableau based on the pivot operation.</p>
+        <p>8. Repeat steps 4 to 7 until an optimal solution is reached: If there are still negative coefficients in the
+            objective row, go back to step 4 and continue. Otherwise, the current solution is optimal, and the algorithm
+            terminates.</p>
+        <p>9. Read the optimal solution: The optimal solution can be read from the final tableau. The decision variables
+            correspond to the basic variables with nonzero values in the rightmost column.</p>
+
+        <p>The simplex method efficiently explores the feasible region by moving from one vertex to another along the
+            edges until the optimal solution is reached. However, in some cases, the algorithm may encounter degeneracy
+            or cycling, which can prolong the convergence or lead to an infinite loop. Various techniques have been
+            developed to handle these issues, such as the Bland's rule and anti-cycling rules.</p>
+
+        <p>It's worth noting that the simplex method is more suitable for medium-sized problems, as its computational
+            complexity can become impractical for very large-scale linear programming problems. For such cases, other
+            algorithms like interior point methods may be more efficient.</p>
+    </div>
+
+    <div class="container bg-light border border-secondary rounded my-4 p-3">
+        <h1>Revised Simplex Method</h1><br>
+
+        <p>The Revised Simplex Method is an improved version of the Simplex Method for solving linear programming
+            problems. It is based on the same principles as the Simplex Method but incorporates some modifications to
+            enhance efficiency and reduce computational effort.</p>
+
+        <p>The Revised Simplex Method is particularly useful when there are only a few variables that are not at their
+            bounds (nonbasic variables), as it takes advantage of this sparsity to optimise the algorithm's performance.
+            Here are the key steps involved in the Revised Simplex Method:</p>
+
+        <p>1. Formulate the linear programming problem: Define the objective function to be maximised or minimised,
+            along with the constraints on the decision variables.</p>
+        <p>2. Convert the problem into standard form: Express the problem in the form of equalities by introducing slack
+            or surplus variables as necessary.</p>
+        <p>3. Set up the initial tableau: Create a table with the coefficients of the variables and constraints. This
+            tableau represents the initial feasible solution.</p>
+        <p>4. Determine the initial basic variables: Select a set of variables that form an initial feasible solution by
+            setting them to their lower or upper bounds and the remaining variables to zero.</p>
+        <p>5. Compute the initial basic feasible solution: Use the selected basic variables to calculate the values of
+            the remaining nonbasic variables.</p>
+        <p>6. Calculate the reduced costs: Compute the reduced costs for the nonbasic variables using the current basic
+            feasible solution.</p>
+        <p>7. Check for optimality: If all reduced costs are nonnegative, the current solution is optimal, and the
+            algorithm terminates. Otherwise, continue to the next step.</p>
+        <p>8. Choose the entering variable: Select the nonbasic variable with the most negative reduced cost as the
+            entering variable.</p>
+        <p>9. Determine the leaving variable: Determine the leaving variable by performing a ratio test on the
+            constraints involving the entering variable.</p>
+        <p>10. Update the tableau: Use elementary row operations to make the pivot element 1 and the other elements in
+            the pivot column 0.</p>
+        <p>11. Update the basic feasible solution: Recalculate the values of the basic variables using the pivot
+            operation.</p>
+        <p>12. Repeat steps 6 to 11 until an optimal solution is reached or the problem is determined to be infeasible
+            or unbounded.</p>
+
+        <p>The main difference between the Simplex Method and the Revised Simplex Method is that the Revised Simplex
+            Method avoids unnecessary calculations for nonbasic variables that remain at their bounds. Instead of
+            recomputing the entire tableau in each iteration, it directly updates the relevant parts of the tableau
+            based on the changes in the basic variables. This reduces the computational effort and enhances the
+            algorithm's efficiency, especially when there are only a few nonbasic variables that are not at their
+            bounds.This can lead to significant computational savings, especially for problems with a large number of
+            variables.</p>
+
+        <p>The Revised Simplex Method is particularly useful when there is a sparsity pattern in the problem, meaning
+            that only a few variables change in each iteration. It takes advantage of this sparsity to optimise the
+            algorithm's performance.</p>
+
+        <p>By following the steps of the Revised Simplex Method, you can efficiently solve linear programming problems
+            and find optimal solutions.</p>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
