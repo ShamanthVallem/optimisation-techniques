@@ -7,9 +7,12 @@ How to run the file:
 2. Clone it into your local repository using "git clone "URL"
 3. Navigate to the project directory using cmd
 3. Run the following command to install required libraries:
-'''pip install -r  requirements.txt'''
+```pip install -r  requirements.txt
+```
 4. Now, run app.py file using the following command:
-'''python app.py'''
+```
+python app.py
+```
 5. Url of the local server will be displayed, use ctrl+click on the url name to access the web portal.
 
 Inputs:
