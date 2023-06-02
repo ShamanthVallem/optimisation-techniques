@@ -1,8 +1,8 @@
 # optimisation-techniques
 
-This is Web portal to calculate max/min of any objective function using linear programming methods.
+This is a Web portal to calculate max/min value of any objective function using linear programming methods.
 
-How to run the file:
+<b>How to run the file</b>:
 1. Fork this repository
 2. Clone it into your local repository using "git clone "URL"
 3. Navigate to the project directory using cmd
@@ -16,7 +16,7 @@ python app.py
 ```
 5. Url of the local server will be displayed, use ctrl+click on the url name to access the web portal.
 
-Inputs:
+<b>Inputs</b>:
 1. Provide type of problem(maximization or minization) and total number of constraints(inequality + non-negative constraints)
 2. Provide number of inequality constraints and click on next
 3. Next, Add the coefficients of objective function
