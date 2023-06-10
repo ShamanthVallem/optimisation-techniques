@@ -4,7 +4,7 @@ This is a Web portal to calculate max/min value of any objective function using 
 
 <b>How to run the file</b>:
 1. Fork this repository
-2. Clone it into your local repository using "git clone "URL"
+2. Clone it into your local machine using "git clone "URL"
 3. Navigate to the project directory using cmd
 3. Run the following command to install required libraries:
 ```
