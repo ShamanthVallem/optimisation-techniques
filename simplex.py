@@ -103,7 +103,7 @@ def optimalValues(optimizedTableau):
                 count = count + 1
         if(flag == 1):
             res_list.append([temp_var_i, temp_var_j])
-            print(res_list)
+            # print(res_list)
     return res_list
 
                 
